@@ -1,13 +1,77 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio-website</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+
+<body class="px-50">
+  <nav class="mt-11 flex  justify-between">
+    <div>
+      <p>jayden-dev.eu</p>
+    </div>
+    <div class="flex gap-4">
+      <a href="#projects">Projects</a>
+      <a href="#about">About me</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+  </nav>
+  <header>
+    <h1>Hi, I'm Jayden Vlekke!
+    </h1>
+    <p>Programmer · Designer · Digital native</p>
+    <p>My passion lies in creating innovative and immersive web applications with the use of modern technologies such as
+      JavaScript, Laravel, HTML, and CSS.</p>
+    <a href="#projects">My projects</a>
+    <a href="#about">About me</a>
+    < <a href="#contact">Get in touch</a>>
+  </header>
+  <main>
+    <section class="flex grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6" id="projects" class="project-container">
+    </section>
+    <div>
+      <section id="about">
+        <img src="src/assets/jayden-vlekke.jpg" alt="Picture of Jayden Vlekke">
+    </div>
+    <div>
+      <h3>Jayden Vlekke</h3>
+      <p>Rotterdam, Netherlands</p>
+      <p>I am a passionate full stack developer with a heart for innovative, secure, and user-friendly web
+        applications. During my Creative Media and Game Technologies (CMGT) degree at the Hogeschool Rotterdam I have
+        gained extensive knowledge in both front- and back-end development.
+        <br>
+        <br>
+        My biggest passion lies in understanding what an user needs and wants and translating that into a
+        functional and visually appealing web application. I am always eager to learn new technologies and stay
+        up-to-date with the latest trends in web development. During my free time I enjoy exploring new innovative
+        technologies, playing a game or two, and spending time with my friends and family.
+      </p>
+    </div>
+    </section>
+    <section id="contact">
+      <a href=" https://github.com/JaydennV">
+        <img src="src/assets/githublogo.png" alt="GitHub logo leading to my Github profile" />
+      </a>
+      <a href="https://www.linkedin.com/in/jayden-vlekke-1b0a4b1b3/">
+        <img src="src/assets/linkedinlogo.png" alt="LinkedIn logo leading to my LinkedIn profile" />
+      </a>
+    </section>
+  </main>
+  <footer class=" flex flex-col justify-center items-center">
+    <div>
+      <p>&copy; 2026 Jayden Vlekke. All rights reserved.</p>
+    </div>
+    <div class="flex gap-2">
+      <a href="#projects">Projects</a>
+      <a href="#about">About me</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+</body>
+
 </html>

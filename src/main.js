@@ -1,60 +1,92 @@
 import './style.css'
-import heroImg from './assets/hero.png'
-import javascriptLogo from './assets/javascript.svg'
-import viteLogo from './assets/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${javascriptLogo}" class="framework" alt="JavaScript logo"/>
-    <img src="${viteLogo}" class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.js</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
+window.addEventListener('load', init);
+const projectContainer = document.getElementById('projects');
 
-<div class="ticks"></div>
+const projects = [
+    {
+        'name': 'Final Remedy',
+        'description': 'An immersive 2D game built with ExcaliburJS, featuring survival-horror elements and a captivating story which makes you think of the consequences of your actions.',
+        'link': 'https://example.com/final-remedy',
+        'tags': ['JavaScript', 'ExcaliburJS', 'HTML'],
+        'backgroundImage': 'url(/src/assets/final-remedy.png)',
+    },
+    {
+        'name': 'Gamey Reviews',
+        'description': 'A secure web application that allows users to submit and read reviews for their video games of choice, built with Laravel and Tailwind CSS.',
+        'link': 'https://example.com/gamey-reviews',
+        'tags': ['Laravel', 'HTML', 'Tailwind'],
+        'backgroundImage': 'url(/src/assets/gamey-reviews.png)',
+    },
+    {
+        'name': 'Portfolio Website',
+        'description': 'A personal portfolio website showcasing my projects, skills, and experience as a full-stack web developer.',
+        'link': 'https://example.com/portfolio-website',
+        'tags': ['JavaScript', 'HTML', 'CSS'],
+        'backgroundImage': 'url(/src/assets/portfolio-website.png)',
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-          <img class="button-icon" src="${javascriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
+    },
+    {
+        'name': 'Amalgamation Idealization',
+        'description': 'An immersive point-and click game showcasing a dystopian future where AI has taken over the world and where the player gets invited to make choices.',
+        'link': 'https://project.cmi.hr.nl/2026_2027/tle_t4',
+        'tags': ['Technology 1', 'Technology 2', 'Technology 3'],
+        'backgroundImage': 'url(/src/assets/amalgamation-idealization.png)',
+    }
+    // {
+    //     'name': 'Another Project',
+    //     'description': 'A brief description of another project.',
+    //     'link': 'https://example.com/another-project',
+    //     'tags': ['Technology 4', 'Technology 5', 'Technology 6'],
+    // }
+    // {
+    //     'name': 'Yet Another Project',
+    //     'description': 'A brief description of yet another project.',
+    //     'link': 'https://example.com/yet-another-project',
+    //     'tags': ['Technology 7', 'Technology 8', 'Technology 9'],
+    // }
+]
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
 
-setupCounter(document.querySelector('#counter'))
+
+
+
+function init() {
+    projectContainerFiller()
+}
+
+function projectContainerFiller() {
+    projects.forEach((project) => {
+        const projectElement = document.createElement('article');
+        projectElement.classList.add('project');
+
+
+        const projectName = document.createElement('h2');
+        projectName.textContent = project.name;
+        projectElement.appendChild(projectName);
+
+        const projectDescription = document.createElement('p');
+        projectDescription.textContent = project.description;
+        projectElement.appendChild(projectDescription);
+
+        const projectLink = document.createElement('a');
+        projectLink.href = project.link;
+        projectLink.textContent = 'View project';
+        projectElement.appendChild(projectLink);
+
+        const projectTags = document.createElement('ul');
+        project.tags.forEach((tag) => {
+            const tagItem = document.createElement('li');
+            tagItem.textContent = tag;
+            projectTags.appendChild(tagItem);
+        });
+        projectElement.appendChild(projectTags);
+
+        const projectimage = document.createElement('img');
+        projectimage.src = project.backgroundImage.slice(4, -1).replace(/"/g, "");
+        projectimage.alt = `${project.name}`;
+        projectElement.appendChild(projectimage);
+
+        projectContainer.appendChild(projectElement);
+    });
+}
