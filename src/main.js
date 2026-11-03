@@ -30,7 +30,7 @@ const projects = [
         'name': 'Amalgamation Idealization',
         'description': 'An immersive point-and click game showcasing a dystopian future where AI has taken over the world and where the player gets invited to make choices.',
         'link': 'https://project.cmi.hr.nl/2026_2027/tle_t4',
-        'tags': ['Technology 1', 'Technology 2', 'Technology 3'],
+        'tags': ['JavaScript', 'TypeScript', 'HTML', 'CSS'],
         'backgroundImage': 'url(/src/assets/amalgamation-idealization.png)',
     }
     // {
@@ -56,9 +56,20 @@ function init() {
 }
 
 function projectContainerFiller() {
+    const observer = 'IntersectionObserver' in window
+        ? new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    currentObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 })
+        : null;
+
     projects.forEach((project) => {
         const projectElement = document.createElement('article');
-        projectElement.classList.add('project');
+        projectElement.classList.add('project-card');
 
 
         const projectName = document.createElement('h2');
@@ -69,14 +80,13 @@ function projectContainerFiller() {
         projectDescription.textContent = project.description;
         projectElement.appendChild(projectDescription);
 
-        const projectLink = document.createElement('a');
-        projectLink.href = project.link;
-        projectLink.textContent = 'View project';
-        projectElement.appendChild(projectLink);
+
 
         const projectTags = document.createElement('ul');
+        projectTags.classList.add('project-tags');
         project.tags.forEach((tag) => {
             const tagItem = document.createElement('li');
+            tagItem.classList.add('project-tag');
             tagItem.textContent = tag;
             projectTags.appendChild(tagItem);
         });
@@ -87,6 +97,36 @@ function projectContainerFiller() {
         projectimage.alt = `${project.name}`;
         projectElement.appendChild(projectimage);
 
+
+
+
         projectContainer.appendChild(projectElement);
+        if (observer) {
+            observer.observe(projectElement);
+        } else {
+            projectElement.classList.add('is-visible');
+        }
+
+
+        const projectLink = document.createElement('a');
+        projectLink.href = project.link;
+        projectLink.textContent = '';
+        projectElement.appendChild(projectLink);
+
+        eventAdders(projectLink, projectElement);
+    });
+
+
+}
+
+function eventAdders(projectLink, projectElement) {
+    projectElement.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.open(projectLink.href, '_blank');
+
+        if (!isset(projectLink.href)) {
+            console.error('Project link is not set.');
+            return;
+        }
     });
 }
