@@ -3,6 +3,8 @@ import './style.css'
 window.addEventListener('load', init);
 const projectContainer = document.getElementById('projects');
 
+const skills = ['Javascript', 'TypeScript', 'HTML', 'CSS', 'Laravel', 'Tailwind', 'ExcaliburJS'];
+
 const projects = [
     {
         'name': 'Final Remedy',
@@ -53,6 +55,7 @@ const projects = [
 
 function init() {
     projectContainerFiller()
+    skillAdders()
 }
 
 function projectContainerFiller() {
@@ -113,11 +116,24 @@ function projectContainerFiller() {
         projectLink.textContent = '';
         projectElement.appendChild(projectLink);
 
+
         eventAdders(projectLink, projectElement);
     });
 
 
 }
+
+function skillAdders() {
+    const skillsContainer = document.getElementById('skills');
+    skills.forEach((skill) => {
+        const skillElement = document.createElement('ul');
+        skillElement.classList.add('project-tag');
+        skillElement.textContent = skill;
+        skillsContainer.appendChild(skillElement);
+    });
+
+}
+
 
 function eventAdders(projectLink, projectElement) {
     projectElement.addEventListener('click', (event) => {
