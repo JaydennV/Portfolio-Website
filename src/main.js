@@ -1,4 +1,8 @@
 import './style.css'
+import finalRemedyImage from './assets/final-remedy.png'
+import gameyReviewsImage from './assets/gamey-reviews.png'
+import portfolioWebsiteImage from './assets/portfolio-website.png'
+import amalgamationIdealizationImage from './assets/amalgamation-idealization.png'
 
 window.addEventListener('load', init);
 const projectContainer = document.getElementById('projects');
@@ -11,21 +15,21 @@ const projects = [
         'description': 'An immersive 2D game built with ExcaliburJS, featuring survival-horror elements and a captivating story which makes you think of the consequences of your actions.',
         'link': 'https://jaydennv.itch.io/final-remedy',
         'tags': ['JavaScript', 'ExcaliburJS', 'HTML'],
-        'backgroundImage': 'url(/src/assets/final-remedy.png)',
+        'backgroundImage': finalRemedyImage,
     },
     {
         'name': 'Gamey Reviews',
         'description': 'A secure web application that allows users to submit and read reviews for their video games of choice, built with Laravel and Tailwind CSS.',
         'link': 'https://example.com/gamey-reviews',
         'tags': ['Laravel', 'HTML', 'Tailwind'],
-        'backgroundImage': 'url(/src/assets/gamey-reviews.png)',
+        'backgroundImage': gameyReviewsImage,
     },
     {
         'name': 'Portfolio Website',
         'description': 'A personal portfolio website showcasing my projects, skills, and experience as a full-stack web developer.',
         'link': 'https://jaydennv.github.io/Portfolio-Website/',
         'tags': ['JavaScript', 'HTML', 'CSS'],
-        'backgroundImage': 'url(/src/assets/portfolio-website.png)',
+        'backgroundImage': portfolioWebsiteImage,
 
     },
     {
@@ -33,7 +37,7 @@ const projects = [
         'description': 'An immersive point-and click game showcasing a dystopian future where AI has taken over the world and where the player gets invited to make choices.',
         'link': 'https://project.cmi.hr.nl/2026_2027/tle_t4',
         'tags': ['JavaScript', 'TypeScript', 'HTML', 'CSS'],
-        'backgroundImage': 'url(/src/assets/amalgamation-idealization.png)',
+        'backgroundImage': amalgamationIdealizationImage,
     }
     // {
     //     'name': 'Another Project',
@@ -99,7 +103,7 @@ function projectContainerFiller() {
         projectElement.appendChild(projectTags);
 
         const projectimage = document.createElement('img');
-        projectimage.src = project.backgroundImage.slice(4, -1).replace(/"/g, "");
+        projectimage.src = project.backgroundImage;
         projectimage.alt = `${project.name}`;
         projectimage.classList.add('project-image');
         if (index % 2 === 0) {
