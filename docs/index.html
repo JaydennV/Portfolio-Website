@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,8 +10,8 @@
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet" />
   <title>Portfolio</title>
-  <script type="module" crossorigin src="./assets/index-RPrkwwoL.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-ClFVASX3.css">
+  <script type="module" crossorigin src="./assets/index-KXAHE0Zs.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DbvgSTB0.css">
 </head>
 
 <body class="bg-[#C6C5B9]">
@@ -44,11 +43,23 @@
       <a class="hover:text-[#62929E] hover:shadow-md hover:border-[#62929E] hover:duration-150 flex items-center rounded-lg justify-center text-center border-2 border-[white] w-36 h-12 bg-[#393D3F] text-white"
         href="#about">Get in touch</a>
     </div>
-    <img src="./assets/arrow-BGg4sp2T.png" alt="Arrow pointing downwards" class="animate-bounce w-10 h-10 mt-4">
+    <img src="./assets/arrow-BGg4sp2T.png" id="arrow" alt="Arrow pointing downwards"
+      class="hover:cursor-pointer animate-bounce w-10 h-10 mt-4">
   </header>
   <main class="px-50 pt-18">
-    <section class="mb-18 flex grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6" id="projects"
-      class="project-container">
+    <div class="flex flex-col justify-center mt-4 mb-4 items-start gap-3">
+      <p class="text-xl text-[#62929E] font-semibold">What I do</p>
+      <h2 class="text-3xl font-bold mb-4">My projects</h2>
+      <p class="text-lg text-[#393D3F] w-3/4 mb-8">
+        Nothing makes me happier than building projects from scratch and experimenting with new technologies.<br>
+        Whether
+        it's a silly idea or a complex web application that is tailored to the needs of a specific user, I love the
+        challenge of bringing ideas to life and creating something that is both functional and visually appealing.
+      </p>
+    </div>
+    <section
+      class="mb-18 flex grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-11 align-center items-center justify-center"
+      id="projects" class="project-container">
     </section>
     <section id="about" class="flex gap-8">
       <div>
@@ -56,7 +67,8 @@
         <img class="border-4 w-4/5 h-auto rounded-lg border-[#62929E]" src="./assets/jayden-vlekke-BE_7W9IE.png"
           alt="Picture of Jayden Vlekke">
       </div>
-      <div class="flex flex-col justify-center items-start gap-2">
+      <div class="flex flex-col justify-center mt-4 mb-4 items-start gap-3">
+        <p class="text-xl text-[#62929E] font-semibold">Who I am</p>
         <h3 class="text-3xl font-bold mb-4">About me</h3>
         <h4 class="text-2xl font-semibold">Jayden Vlekke</h4>
         <p class="text-sm text-[#62929E]">Rotterdam, Netherlands</p>
@@ -75,10 +87,11 @@
         </div>
         <div class="flex gap-2 mt-4 justify-center align-middle items-center text-center">
           <a href=" https://github.com/JaydennV">
-            <img class="w-10 h-10" src="./assets/githublogo-Hrqx8hqp.png" alt="GitHub logo leading to my Github profile" />
+            <img class="social-link-image w-10 h-10" src="./assets/githublogo-Hrqx8hqp.png"
+              alt="GitHub logo leading to my Github profile" />
           </a>
-          <a href="https://www.linkedin.com/in/jayden-vlekke-1b0a4b1b3/">
-            <img class="w-16 h-16" src="./assets/linkedinlogo-EfZ-ayD2.png"
+          <a href="https://example.com">
+            <img class="social-link-image w-16 h-16" src="./assets/linkedinlogo-EfZ-ayD2.png"
               alt="LinkedIn logo leading to my LinkedIn profile" />
           </a>
         </div>

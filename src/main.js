@@ -3,13 +3,13 @@ import './style.css'
 window.addEventListener('load', init);
 const projectContainer = document.getElementById('projects');
 
-const skills = ['Javascript', 'TypeScript', 'HTML', 'CSS', 'Laravel', 'Tailwind', 'ExcaliburJS'];
+const skills = ['Javascript', 'MySQL', 'HTML', 'CSS', 'Laravel', 'Tailwind', 'PHP'];
 
 const projects = [
     {
         'name': 'Final Remedy',
         'description': 'An immersive 2D game built with ExcaliburJS, featuring survival-horror elements and a captivating story which makes you think of the consequences of your actions.',
-        'link': 'https://example.com/final-remedy',
+        'link': 'https://jaydennv.itch.io/final-remedy',
         'tags': ['JavaScript', 'ExcaliburJS', 'HTML'],
         'backgroundImage': 'url(/src/assets/final-remedy.png)',
     },
@@ -23,7 +23,7 @@ const projects = [
     {
         'name': 'Portfolio Website',
         'description': 'A personal portfolio website showcasing my projects, skills, and experience as a full-stack web developer.',
-        'link': 'https://example.com/portfolio-website',
+        'link': 'https://jaydennv.github.io/Portfolio-Website/',
         'tags': ['JavaScript', 'HTML', 'CSS'],
         'backgroundImage': 'url(/src/assets/portfolio-website.png)',
 
@@ -70,7 +70,10 @@ function projectContainerFiller() {
         }, { threshold: 0.15 })
         : null;
 
-    projects.forEach((project) => {
+    projects.forEach((project, index) => {
+        const projectRow = document.createElement('div');
+        projectRow.classList.add('project-row');
+
         const projectElement = document.createElement('article');
         projectElement.classList.add('project-card');
 
@@ -98,17 +101,25 @@ function projectContainerFiller() {
         const projectimage = document.createElement('img');
         projectimage.src = project.backgroundImage.slice(4, -1).replace(/"/g, "");
         projectimage.alt = `${project.name}`;
-        projectElement.appendChild(projectimage);
-
-
-
-
-        projectContainer.appendChild(projectElement);
+        projectimage.classList.add('project-image');
+        if (index % 2 === 0) {
+            projectRow.append(projectimage, projectElement);
+        } else {
+            projectRow.append(projectElement, projectimage);
+        }
+        projectContainer.appendChild(projectRow);
         if (observer) {
             observer.observe(projectElement);
+            observer.observe(projectimage);
         } else {
             projectElement.classList.add('is-visible');
+            projectimage.classList.add('is-visible');
         }
+
+        const projectArrow = document.createElement('p');
+        projectArrow.textContent = '↗';
+        projectArrow.classList.add('project-arrow');
+        projectElement.appendChild(projectArrow);
 
 
         const projectLink = document.createElement('a');
@@ -144,5 +155,16 @@ function eventAdders(projectLink, projectElement) {
             console.error('Project link is not set.');
             return;
         }
+    });
+
+    const arrow = document.querySelector('#arrow');
+    arrow.addEventListener('click', arrowClickHandler);
+}
+
+function arrowClickHandler() {
+
+    window.scrollTo({
+        top: projectContainer.offsetTop,
+        behavior: 'smooth'
     });
 }
